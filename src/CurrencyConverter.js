@@ -26,7 +26,7 @@ function CurrencyConverter() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    function convert() {
+    async function convert() {
       if (amount) {
         const numAmount = parseFloat(amount);
 
@@ -36,19 +36,19 @@ function CurrencyConverter() {
 
         setLoading(true);
 
-        return fetch(`https://api.exchangeratesapi.io/latest?base=${base}`)
-          .then(res => res.json())
-          .then(data => {
-            const newDate = data.date;
-            const newResult = (
-              parseFloat(data.rates[toCurrency]) * numAmount
-            ).toFixed(4);
+        const res = await fetch(
+          `https://api.exchangeratesapi.io/latest?base=${base}`
+        );
+        const data = await res.json();
 
-            setResult(newResult);
-            setDate(newDate);
+        const newDate = data.date;
+        const newResult = (
+          parseFloat(data.rates[toCurrency]) * numAmount
+        ).toFixed(4);
 
-            setLoading(false);
-          });
+        setResult(newResult);
+        setDate(newDate);
+        setLoading(false);
       }
     }
 

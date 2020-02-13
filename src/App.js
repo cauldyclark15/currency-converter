@@ -1,21 +1,24 @@
 import React from 'react';
-import { Layout } from 'antd';
+import { Layout, Typography } from 'antd';
 
 import { App } from './styles';
 import CurrencyConverter from './CurrencyConverter';
 import './App.css';
 
 const { Header, Footer, Content } = Layout;
+const { Title } = Typography;
 
 function ClientApp() {
   return (
     <App>
       <Layout>
-        <Header>header here</Header>
+        <Header>
+          <Title level={2}>Currency Converter</Title>
+        </Header>
         <Content>
           <CurrencyConverter />
         </Content>
-        <Footer>foot them here</Footer>
+        <Footer>Joselie Castaneda</Footer>
       </Layout>
     </App>
   );

@@ -28,7 +28,15 @@ export const App = styled.div`
     height: 100%;
 
     header {
-      color: whitesmoke;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      h2 {
+        margin: 0;
+        padding: 0;
+        color: whitesmoke;
+      }
     }
 
     main {
