@@ -1,14 +1,24 @@
 import React from 'react';
-import { Button } from 'antd';
+import { Layout } from 'antd';
 
+import { App } from './styles';
+import CurrencyConverter from './CurrencyConverter';
 import './App.css';
 
-function App() {
+const { Header, Footer, Content } = Layout;
+
+function ClientApp() {
   return (
-    <div className="App">
-      <Button>Fire</Button>
-    </div>
+    <App>
+      <Layout>
+        <Header>header here</Header>
+        <Content>
+          <CurrencyConverter />
+        </Content>
+        <Footer>foot them here</Footer>
+      </Layout>
+    </App>
   );
 }
 
-export default App;
+export default ClientApp;
