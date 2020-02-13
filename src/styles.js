@@ -24,6 +24,11 @@ export const App = styled.div`
     height: 20px;
   }
 
+  .in-flex {
+    display: flex;
+    flex-direction: column;
+  }
+
   section {
     height: 100%;
 
@@ -52,6 +57,37 @@ export const App = styled.div`
         align-items: center;
         box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
       }
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    section > main > .ant-card {
+      width: 100%;
+      height: 100%;
+      box-shadow: none;
+    }
+  }
+
+  @media screen and (max-height: 480px) {
+    .sp_v_10 {
+      display: none;
+      height: 10px;
+    }
+
+    .in-flex {
+      flex-direction: row;
+      width: 100%;
+      justify-content: space-evenly;
+    }
+
+    section > main > .ant-card {
+      width: 100%;
+      height: 100%;
+      box-shadow: none;
+    }
+
+    section > main > .ant-card > .ant-card-body {
+      width: 100%;
     }
   }
 `;

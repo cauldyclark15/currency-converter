@@ -98,63 +98,65 @@ function CurrencyConverter() {
       </Title>
       <Text type="secondary">As of {date || '---'}</Text>
       <div className="sp_v_20" />
-      <div>
-        <Group size="large">
-          <Row gutter={6}>
-            <Col span={20}>
-              <Input
-                placeholder="Base currency value"
-                value={amount}
-                onChange={handleChange}
-                type="number"
-              />
-            </Col>
-            <Col span={4}>
-              <Select value={base} onChange={handleSelectBase}>
-                {options.map(item => (
-                  <Option key={item.value} value={item.value}>
-                    {item.label}
-                  </Option>
-                ))}
-              </Select>
-            </Col>
-          </Row>
-        </Group>
-      </div>
-      <div className="sp_v_10" />
-
-      <Button
-        type="button"
-        onClick={handleSwap}
-        shape="circle"
-        disabled={loading}
-      >
-        {loading ? <Spin indicator={antIcon} /> : <Icon type="sync" />}
-      </Button>
-
-      <div className="sp_v_10" />
-      <div>
-        <Group size="large">
-          <Row gutter={6}>
-            <Col span={20}>
-              <Input
-                placeholder="Coverted currency value"
-                value={result}
-                onChange={() => {}}
-                disabled
-              />
-            </Col>
-            <Col span={4}>
-              <Select value={toCurrency} onChange={handleSelectTo}>
-                {options.map(item => (
-                  <Option key={item.value} value={item.value}>
-                    {item.label}
-                  </Option>
-                ))}
-              </Select>
-            </Col>
-          </Row>
-        </Group>
+      <div className="in-flex">
+        <div>
+          <Group size="large">
+            <Row gutter={6}>
+              <Col span={20}>
+                <Input
+                  placeholder="Base currency value"
+                  value={amount}
+                  onChange={handleChange}
+                  type="number"
+                />
+              </Col>
+              <Col span={4}>
+                <Select value={base} onChange={handleSelectBase}>
+                  {options.map(item => (
+                    <Option key={item.value} value={item.value}>
+                      {item.label}
+                    </Option>
+                  ))}
+                </Select>
+              </Col>
+            </Row>
+          </Group>
+        </div>
+        <div className="sp_v_10" />
+        <div>
+          <Button
+            type="button"
+            onClick={handleSwap}
+            shape="circle"
+            disabled={loading}
+          >
+            {loading ? <Spin indicator={antIcon} /> : <Icon type="sync" />}
+          </Button>
+        </div>
+        <div className="sp_v_10" />
+        <div>
+          <Group size="large">
+            <Row gutter={6}>
+              <Col span={20}>
+                <Input
+                  placeholder="Coverted currency value"
+                  value={result}
+                  onChange={() => {}}
+                  disabled
+                />
+              </Col>
+              <Col span={4}>
+                <Select value={toCurrency} onChange={handleSelectTo}>
+                  {options.map(item => (
+                    <Option key={item.value} value={item.value}>
+                      {item.label}
+                    </Option>
+                  ))}
+                </Select>
+              </Col>
+            </Row>
+          </Group>
+        </div>
       </div>
     </Card>
   );
